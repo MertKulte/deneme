@@ -1,0 +1,9 @@
+*.wpc
+*.lpr
+*.xpr
+*.log
+*.jou
+*.xml
+**/bd/*.tcl
+**/xgui/*.tcl
+temporary_case_dependencies.mk
