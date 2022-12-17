@@ -17,7 +17,7 @@ ADI_LIB_DEPS += xilinx/util_clkdiv
 .PHONY: all clean adi_lib clean_adi_lib adi_lib
 #all: adi_lib 
 
-all: adi_lib
+all: adi_lib syn 
 
 clean: clean_adi_lib
 
@@ -25,10 +25,15 @@ adi_lib:
 	@for lib in $(ADI_LIB_DEPS); do \
 		#echo $$lib; \
 		$(MAKE) --no-print-directory -C hdl/adi_lib/$${lib} xilinx || exit $$?; \
-	done															
-	
+	done
+
+syn: adi_lib
+	@$(MAKE) --no-print-directory -C hdl/project/ syn
+
+clean_syn: 
+	@$(MAKE) --no-print-directory -C hdl/project/ clean
+		
 clean_adi_lib:
-	echo $$?
 	@for lib in $(ADI_LIB_DEPS); do \
 		$(MAKE) --no-print-directory -C hdl/adi_lib/$${lib} clean; \
 	done

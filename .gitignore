@@ -7,3 +7,5 @@
 **/bd/*.tcl
 **/xgui/*.tcl
 temporary_case_dependencies.mk
+**/adrv9361z7035_ccbob_lvds/*
+hdl/project/system_top.xsa
